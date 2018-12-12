@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Word Guess Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- LINK TO BOOTSTRAP (REMOVES NEED FOR RESET CSS) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- LINK TO CSS  -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <!-- LINK TO GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Gravitas+One|Parisienne" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container" id="main-container">
+
+    <header>
+        <div class="jumbotron text-center" id="game-title">
+            <h1 class="title1">Ho-Ho-Holiday</h1>
+            <h1 class="title2">Hangman</h1>
+        </div>
+    </header>
+    
+    <section class="main-section">
+        <div class="row" id="instructions">
+            <div class="col">
+                <p id="start">Press any letter key to begin!</p>
+                <p><strong>NOTE:</strong>&nbsp;Each letter key that you press (including your starting key), will count as a guess.</p>
+            </div>
+        </div>
+
+        <div class="row" id="game-information">
+            <div class="col">
+                <div id="wins">Wins:</div>
+                <div id="losses">Losses:</div>
+            </div>
+            
+            <div class="col">
+                <div id="current-word">Current word:</div>
+                <div id="current-guesses">Guessed Letters:</div>
+                <div id="guesses-remaining">Guesses Remaining:</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer fixed-bottom">
+        <div class="container text-center">
+            <p>Copyright &copy; 2018 Leah Morris</p>
+        </div>
+    </footer>
+
+</div>
+    
+
+    <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>

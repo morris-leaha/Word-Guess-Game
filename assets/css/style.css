@@ -1,0 +1,36 @@
+body {
+    background-image: url("../images/silver-313347_1280.jpg");
+    background-repeat: no-repeat;
+    background-image: center;
+    background-size: cover;
+}
+
+.jumbotron {
+    background: none;
+    color: rgb(165,11,19);
+    padding: 2rem;
+    margin-bottom: 0;
+}
+
+.title1 {
+    font-family: "Parisienne", cursive;
+    font-size: 4rem;
+    margin-bottom: 0;
+}
+
+.title2 {
+    font-family: 'Gravitas One', cursive;
+}
+
+footer {
+    margin-top: 3rem;
+    background-color: rgb(164,165,169,0.95);
+    border-top: 6px rgb(221,221,221) solid; 
+}
+
+footer > div {
+    height: 100%;
+    padding-top: 15px;
+    font-size: 0.75rem;
+    color: rgb(165,11,19,0.8);
+}
