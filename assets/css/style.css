@@ -14,6 +14,7 @@ body {
 
 .title1 {
     font-family: "Parisienne", cursive;
+    font-weight: bold;
     font-size: 4rem;
     margin-bottom: 0;
 }
@@ -22,9 +23,26 @@ body {
     font-family: 'Gravitas One', cursive;
 }
 
+section {
+    font-family: 'Handlee', cursive;
+    font-size: 1.5rem;
+    color: rgb(165,11,19);
+    padding: 1rem;
+    border: 0.5rem rgb(164,165,169,0.5) solid;
+    background: rgb(221,221,221,0.5);
+    line-height: 2.5rem;
+}
+
+.h4 {
+    border-bottom: 1px rgb(165,11,19,0.5) solid;
+    padding-bottom: 0.5rem;
+}
+
+
+
 footer {
     margin-top: 3rem;
-    background-color: rgb(164,165,169,0.95);
+    background-color: rgb(189,190,192);
     border-top: 6px rgb(221,221,221) solid; 
 }
 

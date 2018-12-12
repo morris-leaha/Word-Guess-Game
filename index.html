@@ -12,7 +12,7 @@
     <!-- LINK TO CSS  -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <!-- LINK TO GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Gravitas+One|Parisienne" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gravitas+One|Handlee|Parisienne" rel="stylesheet">
 </head>
 
 <body>
@@ -22,28 +22,27 @@
     <header>
         <div class="jumbotron text-center" id="game-title">
             <h1 class="title1">Ho-Ho-Holiday</h1>
-            <h1 class="title2">Hangman</h1>
+            <h1 class="title2">HANGMAN</h1>
         </div>
     </header>
     
     <section class="main-section">
         <div class="row" id="instructions">
-            <div class="col">
-                <p id="start">Press any letter key to begin!</p>
-                <p><strong>NOTE:</strong>&nbsp;Each letter key that you press (including your starting key), will count as a guess.</p>
+            <div class="col text-center">
+                <p id="start" class="h4">Press any letter key to begin!</p>
             </div>
         </div>
 
-        <div class="row" id="game-information">
-            <div class="col">
-                <div id="wins">Wins:</div>
-                <div id="losses">Losses:</div>
-            </div>
-            
-            <div class="col">
+        <div class="row text-center" id="game-information">
+            <div class="col text-center">
                 <div id="current-word">Current word:</div>
                 <div id="current-guesses">Guessed Letters:</div>
                 <div id="guesses-remaining">Guesses Remaining:</div>
+            </div>
+            
+            <div class="col">
+                <div id="wins">Wins:</div>
+                <div id="losses">Losses:</div>
             </div>
         </div>
     </section>
