@@ -1,8 +1,7 @@
 // Holiday Word Array 
 var wordList = ["advent", "christmas", "dreidel", "eggnog", "elves", "gingerbread", "garland", "hanukkah", "jingle", "kwanzaa", "mistletoe", "nutcracker", "reindeer", "stocking", "sugarplum"];
 
-// Declaring the variable that will store the current, randomly chosen word as a string
-var currentWord = ""; 
+//=============================================================================================================================================================================================
 
 // Random word is chosen by computer
 var currentWord = wordList[Math.floor(Math.random() * wordList.length)];  
@@ -24,26 +23,41 @@ var currentWordPosition = document.getElementById("current-word");
 // Inserting the new element into its position
 currentWordPosition.appendChild(currentWordElement);
 
-// var wordPicked = document.getElementById("rep-word");
-// wordPicked.textContent = ("");
+//=============================================================================================================================================================================================
 
 // letters are displayed as underscores
 
 
-// number of wins starts at 0
+
+//=============================================================================================================================================================================================
+
+// Starting number of wins at 0, then created and added a new element into DOM for number of wins
 var wins = 0;
-var winCount = document.getElementById("wins");
-winCount.textContent = "Wins: " + wins;
+newWinElement = document.createElement("span");
+newWinText = document.createTextNode(" " + wins);
+newWinElement.appendChild(newWinText);
+newWinPosition = document.getElementById("wins");
+newWinPosition.appendChild(newWinElement);
 
-// number of losses starts at 0
+//=============================================================================================================================================================================================
+
+// Starting number of losses at 0, then created and added a new element into DOM for number of losses
 var losses = 0;
-var lossesCount = document.getElementById("losses");
-lossesCount.textContent = "Losses: " + losses;
+newLossesElement = document.createElement("span");
+newLossesText = document.createTextNode(" " + losses);
+newLossesElement.appendChild(newLossesText);
+newLossesPosition = document.getElementById("losses");
+newLossesPosition.append(newLossesElement);
 
-// guesses left starts at 10
+//=============================================================================================================================================================================================
+
+//Starting number of guesses remaining at 0, then created and added a new element into DOM for number of guesses remaining
 var guessesLeft = 10;
-var guessCount = document.getElementById("guesses-remaining");
-guessCount.textContent = "Guesses Remaining: " + guessesLeft;
+newGuessesLeft = document.createElement("span");
+newGuessesText = document.createTextNode(" " + guessesLeft);
+newGuessesLeft.appendChild(newGuessesText);
+newGuessesPosition = document.getElementById("guesses-remaining");
+newGuessesPosition.appendChild(newGuessesLeft);
 
 // user starts the game by pressing any letter key
 
