@@ -17,11 +17,8 @@ var currentWordText = document.createTextNode(" " + currentWord);
 // Attaching the new text node for random word chosen to the new element created
 currentWordElement.appendChild(currentWordText);
 
-// Telling where the new element for random chosen word will go and storing it in a variable
-var currentWordPosition = document.getElementById("current-word");
-
-// Inserting the new element into its position
-currentWordPosition.appendChild(currentWordElement);
+// Telling where the new element for random chosen word will go and inserting the new element into its position
+document.getElementById("current-word").appendChild(currentWordElement);
 
 //=============================================================================================================================================================================================
 
@@ -36,8 +33,7 @@ var wins = 0;
 newWinElement = document.createElement("span");
 newWinText = document.createTextNode(" " + wins);
 newWinElement.appendChild(newWinText);
-newWinPosition = document.getElementById("wins");
-newWinPosition.appendChild(newWinElement);
+document.getElementById("wins").appendChild(newWinElement);
 
 //=============================================================================================================================================================================================
 
@@ -46,8 +42,7 @@ var losses = 0;
 newLossesElement = document.createElement("span");
 newLossesText = document.createTextNode(" " + losses);
 newLossesElement.appendChild(newLossesText);
-newLossesPosition = document.getElementById("losses");
-newLossesPosition.append(newLossesElement);
+document.getElementById("losses").append(newLossesElement);
 
 //=============================================================================================================================================================================================
 
@@ -56,10 +51,11 @@ var guessesLeft = 10;
 newGuessesLeft = document.createElement("span");
 newGuessesText = document.createTextNode(" " + guessesLeft);
 newGuessesLeft.appendChild(newGuessesText);
-newGuessesPosition = document.getElementById("guesses-remaining");
-newGuessesPosition.appendChild(newGuessesLeft);
+document.getElementById("guesses-remaining").appendChild(newGuessesLeft);
 
 // user starts the game by pressing any letter key
+
+
 
 // each letter key pressed is stored and listed 
 
