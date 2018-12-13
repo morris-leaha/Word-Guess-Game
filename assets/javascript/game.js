@@ -1,8 +1,9 @@
-// Declare variables
+// STORE THE HOLIDAY WORDS IN AN ARRAY  
+
 var wordList = ["advent", "christmas", "dreidel", "eggnog", "elves", "gingerbread", "garland", "hanukkah", "jingle", "kwanzaa", "mistletoe", "nutcracker", "reindeer", "stocking", "sugarplum"];
 
-
 //=============================================================================================================================================================================================
+
 // RANDOM WORD GENERATION
 
 var currentWord = wordList[Math.floor(Math.random() * wordList.length)]; // Random word is chosen by computer 
@@ -11,13 +12,14 @@ var currentWord = wordList[Math.floor(Math.random() * wordList.length)]; // Rand
 //=============================================================================================================================================================================================
 
 // LETTERS ARE DISPLAYED AS UNDERSCORES (__)
-var blanksArray = [];
+var blanksArray = []; // creating empty array that will store our (__)/"blanks"
 
-for (var i = 0; i < currentWord.length; i++) {
-    blanksArray.push("_");
-    console.log(blanksArray);
+for (var i = 0; i < currentWord.length; i++) { // will loop through the current word's length, one letter at a time
+    blanksArray.push("_"); // in each loop, each subseqent letter in the currentWord will be replaced with an underscore in the blanksArray
+    console.log(blanksArray); // want to visualize each letter of the currentWord being replaced 
   }
-    document.getElementById("guessing-word").innerHTML = blanksArray.join(" ");
+    document.getElementById("guessing-word").innerHTML = blanksArray.join(" "); // joins the elements of an array into a string & returns the string, which is placed in our HTML where specified
+                                                                                // NOTE: always put outside of the loop, because you don't need it to replace every loop, just at the end.
 
 //=============================================================================================================================================================================================
 
@@ -48,44 +50,30 @@ document.getElementById("guesses-remaining").appendChild(newGuessesLeft);
 
 //=============================================================================================================================================================================================
 
-// RUN THIS FUNCTION WHEN USER PRESSES A KEY
+// Declaring initial variables to use in event function
 
-// declaring initial variables for use in function
 var userGuess = "";
-var guessedLetters = [];
+var guessedLetters = []; // created guessedLetters assigned an empty array -- will store the letters pressed by the user
 var guessCount = 10;
 var splitWord = currentWord.split("");
     console.log(splitWord);
 var totalLetters = splitWord.length;
 var correctLetters = 0;
 
-// each letter key pressed is stored and listed
-document.onkeyup = function(event) { 
-    userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-        console.log(userGuess);
-    
-    // newGuessedLetterEl = document.createElement("span");
-    // newGuessedText = document.createTextNode(" " + userGuess);
-    // newGuessedLetterEl.appendChild(newGuessedText);
-    // document.getElementById("current-guesses").appendChild(newGuessedLetterEl);
+// RUN THIS FUNCTION WHEN USER PRESSES A KEY
+
+document.onkeyup = function(event) { // when user releases a key, the event function will run
+    userGuess = String.fromCharCode(event.keyCode).toLowerCase();  // storing the event of a key pressed as userGuess -- but using the string property, the computer will convert the key's character code that was pressed to an actual letter and make it lowercase (since all my wordList words are lowercase)
+        console.log(userGuess);                              // want to visualize in console what key the user is pressing
 
     // verifies if user has picked the same letter twice
-    if (guessedLetters.indexOf(userGuess) >= 0) {
-        console.log("you've already guessed that letter");
-        return; //stop the rest of the code from running
-    } else {
-        guessedLetters.push(userGuess);
+    if (guessedLetters.indexOf(userGuess) >= 0) {  // says if WITHIN the array (the significance of >=0) of guessedLetters, using the indexOf() method to find the first occurrence, there is another value that is the same 
+        console.log("you've already guessed that letter");  // print in console that userGuess has already been chosen and cannot be chosen again
+        return; // stops the rest of the code from running
+    } else {  // if the user picks another letter, not already picked, then
+        guessedLetters.push(userGuess);  // put userGuess into the guessedLetters array 
+        document.getElementById("guessed-letters").innerHTML = guessedLetters.join(" ");  // add the userGuess, stored in the guessedLetters array, to the HTML  
     }
-
-
-
-
-    // // each letter key pressed decreases the allowed number of guessed 
-    // guessesLeft--;
-    //     console.log(guessesLeft);
-    // document.getElementById("guesses-remaining").innerHTML = ("Guesses Remaining: " + guessesLeft);
-
-    // check each userGuess against each index (each letter) of splitWord 
 
     var matchFound = false;
 
@@ -133,10 +121,6 @@ document.onkeyup = function(event) {
             //update DOM
 
 }
-
-// QUESTIONS: 
-// 1. set max number of guessesLeft?
-// 2. user cannot key same letter choice
 
 
 
