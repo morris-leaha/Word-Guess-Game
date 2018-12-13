@@ -15,7 +15,7 @@ var currentWord = wordList[Math.floor(Math.random() * wordList.length)]; // Rand
 
 //=============================================================================================================================================================================================
 
-// letters are displayed as underscores
+// LETTERS ARE DISPLAYED AS UNDERSCORES (__)
 var currentWordGuess = [];
 
 for (var i = 0; i < currentWord.length; i++) {
@@ -25,7 +25,7 @@ for (var i = 0; i < currentWord.length; i++) {
 
 //=============================================================================================================================================================================================
 
-// Starting number of wins at 0, then created and added a new element into DOM for number of wins
+// START WINS = 0 AND DISPLAY
 var wins = 0;
 newWinElement = document.createElement("span");
 newWinText = document.createTextNode(" " + wins);
@@ -34,7 +34,7 @@ document.getElementById("wins").appendChild(newWinElement);
 
 //=============================================================================================================================================================================================
 
-// Starting number of losses at 0, then created and added a new element into DOM for number of losses
+// START LOSSES = 0 AND DISPLAY
 var losses = 0;
 newLossesElement = document.createElement("span");
 newLossesText = document.createTextNode(" " + losses);
@@ -43,18 +43,26 @@ document.getElementById("losses").append(newLossesElement);
 
 //=============================================================================================================================================================================================
 
-// Starting number of guesses remaining at 0, then created and added a new element into DOM for number of guesses remaining
+// START MAX GUESSES = 10 AND DISPLAY
 var guessesLeft = 10;
 newGuessesLeft = document.createElement("span");
 newGuessesText = document.createTextNode(" " + guessesLeft);
 newGuessesLeft.appendChild(newGuessesText);
 document.getElementById("guesses-remaining").appendChild(newGuessesLeft);
 
-// This function is run whenever the user presses a key
+//=============================================================================================================================================================================================
+
+// RUN THIS FUNCTION WHEN USER PRESSES A KEY
+
+// declaring initial variables for use in function
 var userGuess = [];
 var guessCount = "";
+var splitWord = currentWord.split("");
+    console.log(splitWord);
+var correctLetters = [];
 
-document.onkeypress = function(event) {
+// each letter key pressed is stored and listed
+document.onkeypress = function(event) { 
     userGuess = String.fromCharCode(event.keyCode);
         console.log(userGuess);
     
@@ -66,9 +74,12 @@ document.onkeypress = function(event) {
     guessesLeft--;
         console.log(guessesLeft);
     document.getElementById("guesses-remaining").innerHTML = ("Guesses Remaining: " + guessesLeft);
+
+    
+
 }
 
 
-// each letter key pressed is stored and listed 
+
 
 // each letter key pressed decreases the allowed number of guessed 
