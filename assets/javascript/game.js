@@ -71,15 +71,34 @@ document.onkeypress = function(event) {
     newGuessedLetterEl.appendChild(newGuessedText);
     document.getElementById("current-guesses").appendChild(newGuessedLetterEl);
 
+    // each letter key pressed decreases the allowed number of guessed 
     guessesLeft--;
         console.log(guessesLeft);
     document.getElementById("guesses-remaining").innerHTML = ("Guesses Remaining: " + guessesLeft);
 
-    
+    // check each userGuess against each index (each letter) of splitWord 
+        // for loop to run through the splitWord.length 
+            // if userGuess matches a value in splitWord array
+                // replace (_) in currentWord at corresponding index(es)
+            // else, (userGuess does not match a value in splitWord arrar)
+                // do nothing 
 
+    // (if player correctly guesses all the letters within # of guessesLeft ==> USER WINS)
+      // IF, all userGuesses = splitWord.length (all userGuesses were matched to splitWord) AND < guessesLeft 
+        // user wins
+            // increment the number of wins
+        
+    // (if player does not correctly guess all the letters within # of guessesLeft ==> USER LOSES)        
+      // ELSE, all userGuesses /= splitWord.length AND > guessesLeft 
+        // user loses
+            // decrement the number of wins 
+            // increment the number of losses
 }
 
+QUESTIONS: 
+// 1. set max number of guessesLeft?
+// 2. user cannot key same letter choice
 
 
 
-// each letter key pressed decreases the allowed number of guessed 
+
