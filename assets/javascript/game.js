@@ -1,14 +1,31 @@
 // Holiday Word Array 
 var wordList = ["advent", "christmas", "dreidel", "eggnog", "elves", "gingerbread", "garland", "hanukkah", "jingle", "kwanzaa", "mistletoe", "nutcracker", "reindeer", "stocking", "sugarplum"];
 
-// Random word is chosen by computer
+// Declaring the variable that will store the current, randomly chosen word as a string
 var currentWord = ""; 
-var currentWord = wordList[Math.floor(Math.random() * wordList.length)];
-console.log("Current, random word is: " + currentWord);
 
-// random word is displayed as current word 
-var wordPicked = document.getElementById("rep-word");
-wordPicked.textContent = ("");
+// Random word is chosen by computer
+var currentWord = wordList[Math.floor(Math.random() * wordList.length)];  
+    // Checking to see if random word is chosen
+    console.log("Current, random word is: " + currentWord);
+
+// Creating new element for random word chosen and storing it in a variable
+var currentWordElement = document.createElement("span");
+
+// Creating a new text node for random word chosen and storing it in a variable
+var currentWordText = document.createTextNode(" " + currentWord);
+
+// Attaching the new text node for random word chosen to the new element created
+currentWordElement.appendChild(currentWordText);
+
+// Telling where the new element for random chosen word will go and storing it in a variable
+var currentWordPosition = document.getElementById("current-word");
+
+// Inserting the new element into its position
+currentWordPosition.appendChild(currentWordElement);
+
+// var wordPicked = document.getElementById("rep-word");
+// wordPicked.textContent = ("");
 
 // letters are displayed as underscores
 
