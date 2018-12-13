@@ -52,13 +52,15 @@ document.getElementById("guesses-remaining").appendChild(newGuessesLeft);
 
 // Declaring initial variables to use in event function
 
-var userGuess = "";
+var userGuess = ""; // create userGuess variable to store strings of letters pressed 
 var guessedLetters = []; // created guessedLetters assigned an empty array -- will store the letters pressed by the user
-var guessCount = 10;
-var splitWord = currentWord.split("");
-    console.log(splitWord);
+var guessCount = 10; // storing the max number of letters the user can pick
+var splitWord = currentWord.split(""); // storing the letters of the currentWord as individual strings into the variable splitWord 
+    console.log(splitWord); // visualizing in console the individual letter of the currentWord 
+var matchFound = false; // setting the value of matchFound to false 
 var totalLetters = splitWord.length;
 var correctLetters = 0;
+
 
 // RUN THIS FUNCTION WHEN USER PRESSES A KEY
 
@@ -75,20 +77,15 @@ document.onkeyup = function(event) { // when user releases a key, the event func
         document.getElementById("guessed-letters").innerHTML = guessedLetters.join(" ");  // add the userGuess, stored in the guessedLetters array, to the HTML  
     }
 
-    var matchFound = false;
-
-        // for loop to run through the splitWord.length 
-            for (j=0; j < splitWord.length; j++) {
-                // if userGuess matches a value in splitWord array
-                if (splitWord[j] === userGuess) {
-                    //remove letter from split word
-                    splitWord[j] = "_";
-                    //add letter to 
-                    blanksArray[j] = userGuess;
-                    matchFound = true; 
-                    correctLetters++;
-                }
-            }
+    // for loop to run through the splitWord.length 
+    for (j=0; j < splitWord.length; j++) {
+        if (splitWord[j] === userGuess) {  // if userGuess matches a value in splitWord array
+            splitWord[j] = "_";  //remove letter from split word
+            blanksArray[j] = userGuess; //add letter to 
+            matchFound = true; 
+            correctLetters++;
+        }
+    }
             document.getElementById("guessing-word").innerHTML = blanksArray.join(" ");
             console.log(blanksArray);
 
