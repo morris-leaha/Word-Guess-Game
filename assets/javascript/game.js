@@ -65,9 +65,7 @@ document.onkeypress = function(event) {
 
     guessesLeft--;
         console.log(guessesLeft);
-    document.getElementById("guesses-count").innerHTML = guessesLeft;
-    
-
+    document.getElementById("guesses-remaining").innerHTML = ("Guesses Remaining: " + guessesLeft);
 }
 
 
