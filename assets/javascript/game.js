@@ -76,7 +76,7 @@ document.onkeyup = function(event) { // when user releases a key, the event func
         guessedLetters.push(userGuess);  // put userGuess into the guessedLetters array 
         document.getElementById("guessed-letters").innerHTML = guessedLetters.join(" ");  // add the userGuess, now stored in the guessedLetters array, to the HTML  
     }
-
+    guessedLetters.length = 9; 
     for (j=0; j < splitWord.length; j++) {  // for loop to run through the splitWord.length
         if (splitWord[j] === userGuess) {  // states if userGuess matches a value in splitWord array, then:
             blanksArray[j] = userGuess; // add the matching userGuess letter to the blanksArray at specific/matching index position(s)
@@ -86,13 +86,8 @@ document.onkeyup = function(event) { // when user releases a key, the event func
         }
     }
         document.getElementById("guessing-word").innerHTML = blanksArray.join(" "); // replacing matched letters in HTML at specific index - so visible to user
-            console.log("this is the blanksArray: " + blanksArray); // visualize the blankArray in console
+            console.log("blanksArray: " + blanksArray); // visualize the blankArray in console
         
-    guessCount--; //decrement the guesses remaining with each userGuess
-        console.log("number of guesses left: " + guessCount); // visualize number in console 
-        document.getElementById("guesses-remaining").innerHTML = ("Guesses Remaining: " + guessCount); // update count in HTML
-
-
     if (matchFound) {  // check if a match was found or not
         if (totalLetters === correctLetters) { // if match is found AND all of the matches have been found
             wins++; // increment number of wins
@@ -108,11 +103,19 @@ document.onkeyup = function(event) { // when user releases a key, the event func
                 //reset the game
             }               
     
+    guessCount--; //decrement the guesses remaining with each userGuess
+        console.log("number of guesses left: " + guessCount); // visualize number in console 
+        document.getElementById("guesses-remaining").innerHTML = ("Guesses Remaining: " + guessCount); // update count in HTML
+    
+    
     if (guessCount === 0) { // game ends when user runs out of guesses
         losses++; // increment losses by one
         document.getElementById("losses").innerHTML = ("Losses: " + losses); // display in HTML
-    } else {
-        //reset the game
+    } 
+
+    if (guessCount < 0) { // put in to make it "look" like has 0 remaining guesses left, even though it will go negative
+        var placeholder = 0;
+        document.getElementById("guesses-remaining").innerHTML = ("Guesses Remaining: " + placeholder);
     }
 }
 
