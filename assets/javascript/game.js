@@ -4,14 +4,15 @@ var wordList = ["advent", "christmas", "dreidel", "eggnog", "elves", "gingerbrea
 
 //=============================================================================================================================================================================================
 
-// RANDOM WORD GENERATION
+// RANDOM WORD GENERATION 
 
 var currentWord = wordList[Math.floor(Math.random() * wordList.length)]; // Random word is chosen by computer 
     console.log("Current, random word is: " + currentWord); // Checking to see if random word is chosen
 
 //=============================================================================================================================================================================================
 
-// LETTERS ARE DISPLAYED AS UNDERSCORES (__)
+// LETTERS TO BE DISPLAYED AS UNDERSCORES (__) IN HTML
+
 var blanksArray = []; // creating empty array that will store our (__)/"blanks"
 
 for (var i = 0; i < currentWord.length; i++) { // will loop through the current word's length, one letter at a time
@@ -23,38 +24,13 @@ for (var i = 0; i < currentWord.length; i++) { // will loop through the current 
 
 //=============================================================================================================================================================================================
 
-// START WINS = 0 AND DISPLAY
-var wins = 0;
-newWinElement = document.createElement("span");
-newWinText = document.createTextNode(" " + wins);
-newWinElement.appendChild(newWinText);
-document.getElementById("wins").appendChild(newWinElement);
+// DECLARE  VARIABLES TO BE USED IN EVENT FUNCTION
 
-//=============================================================================================================================================================================================
-
-// START LOSSES = 0 AND DISPLAY
-var losses = 0;
-newLossesElement = document.createElement("span");
-newLossesText = document.createTextNode(" " + losses);
-newLossesElement.appendChild(newLossesText);
-document.getElementById("losses").append(newLossesElement);
-
-//=============================================================================================================================================================================================
-
-// START MAX GUESSES = 10 AND DISPLAY
-var guessesLeft = 10;
-newGuessesLeft = document.createElement("span");
-newGuessesText = document.createTextNode(" " + guessesLeft);
-newGuessesLeft.appendChild(newGuessesText);
-document.getElementById("guesses-remaining").appendChild(newGuessesLeft);
-
-//=============================================================================================================================================================================================
-
-// Declaring initial variables to use in event function
-
+var wins = 0; // setting number of wins to 0 (to start)
+var losses = 0; // setting number of losses to 0 (to start)
+var guessCount = 10; // storing the max number of letters the user can pick
 var userGuess = ""; // create userGuess variable to store strings of letters pressed 
 var guessedLetters = []; // created guessedLetters assigned an empty array -- will store the letters pressed by the user
-var guessCount = 10; // storing the max number of letters the user can pick
 var splitWord = currentWord.split(""); // splits the currentWord into individual strings and stores it in an array we assigned the value of splitWord
     console.log(splitWord); // visualizing in console the individual letter of the currentWord 
 var matchFound = false; // setting the value of matchFound to false 
@@ -76,7 +52,6 @@ document.onkeyup = function(event) { // when user releases a key, the event func
         guessedLetters.push(userGuess);  // put userGuess into the guessedLetters array 
         document.getElementById("guessed-letters").innerHTML = guessedLetters.join(" ");  // add the userGuess, now stored in the guessedLetters array, to the HTML  
     }
-    // guessedLetters.length = 9; 
 
     for (j=0; j < splitWord.length; j++) {  // for loop to run through the splitWord.length
         if (splitWord[j] === userGuess) {  // states if userGuess matches a value in splitWord array, then:
