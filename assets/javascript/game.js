@@ -76,7 +76,8 @@ document.onkeyup = function(event) { // when user releases a key, the event func
         guessedLetters.push(userGuess);  // put userGuess into the guessedLetters array 
         document.getElementById("guessed-letters").innerHTML = guessedLetters.join(" ");  // add the userGuess, now stored in the guessedLetters array, to the HTML  
     }
-    guessedLetters.length = 9; 
+    // guessedLetters.length = 9; 
+
     for (j=0; j < splitWord.length; j++) {  // for loop to run through the splitWord.length
         if (splitWord[j] === userGuess) {  // states if userGuess matches a value in splitWord array, then:
             blanksArray[j] = userGuess; // add the matching userGuess letter to the blanksArray at specific/matching index position(s)
