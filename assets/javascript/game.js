@@ -55,18 +55,18 @@ document.getElementById("guesses-remaining").appendChild(newGuessesLeft);
 var userGuess = ""; // create userGuess variable to store strings of letters pressed 
 var guessedLetters = []; // created guessedLetters assigned an empty array -- will store the letters pressed by the user
 var guessCount = 10; // storing the max number of letters the user can pick
-var splitWord = currentWord.split(""); // storing the letters of the currentWord as individual strings into the variable splitWord 
+var splitWord = currentWord.split(""); // splits the currentWord into individual strings and stores it in an array we assigned the value of splitWord
     console.log(splitWord); // visualizing in console the individual letter of the currentWord 
 var matchFound = false; // setting the value of matchFound to false 
-var totalLetters = splitWord.length;
-var correctLetters = 0;
+var correctLetters = 0; // setting the value of correctLetters to 0
+var totalLetters = splitWord.length; // storing totalLetters as the total length of the splitWord 
 
 
 // RUN THIS FUNCTION WHEN USER PRESSES A KEY
 
 document.onkeyup = function(event) { // when user releases a key, the event function will run
     userGuess = String.fromCharCode(event.keyCode).toLowerCase();  // storing the event of a key pressed as userGuess -- but using the string property, the computer will convert the key's character code that was pressed to an actual letter and make it lowercase (since all my wordList words are lowercase)
-        console.log(userGuess);                              // want to visualize in console what key the user is pressing
+        console.log("user picked: " + userGuess);  // want to visualize in console what key the user is pressing
 
     // verifies if user has picked the same letter twice
     if (guessedLetters.indexOf(userGuess) >= 0) {  // says if WITHIN the array (the significance of >=0) of guessedLetters, using the indexOf() method to find the first occurrence, there is another value that is the same 
@@ -74,51 +74,43 @@ document.onkeyup = function(event) { // when user releases a key, the event func
         return; // stops the rest of the code from running
     } else {  // if the user picks another letter, not already picked, then
         guessedLetters.push(userGuess);  // put userGuess into the guessedLetters array 
-        document.getElementById("guessed-letters").innerHTML = guessedLetters.join(" ");  // add the userGuess, stored in the guessedLetters array, to the HTML  
+        document.getElementById("guessed-letters").innerHTML = guessedLetters.join(" ");  // add the userGuess, now stored in the guessedLetters array, to the HTML  
     }
 
-    // for loop to run through the splitWord.length 
-    for (j=0; j < splitWord.length; j++) {
-        if (splitWord[j] === userGuess) {  // if userGuess matches a value in splitWord array
-            splitWord[j] = "_";  //remove letter from split word
-            blanksArray[j] = userGuess; //add letter to 
-            matchFound = true; 
-            correctLetters++;
+    for (j=0; j < splitWord.length; j++) {  // for loop to run through the splitWord.length
+        if (splitWord[j] === userGuess) {  // states if userGuess matches a value in splitWord array, then:
+            // splitWord[j] = "_"; 
+            blanksArray[j] = userGuess; // add the matching userGuess letter to the blanksArray at specific/matching index position(s)
+            matchFound = true; // updating the value of matchFound
+            correctLetters++; // increment the value of correctLetters
         }
     }
-            document.getElementById("guessing-word").innerHTML = blanksArray.join(" ");
+        document.getElementById("guessing-word").innerHTML = blanksArray.join(" "); // replacing matched letters in HTML at specific index - so visible to user
             console.log(blanksArray);
 
-            // check if a match was found or not
-                // if found, check if all the matches have been found
-                if (matchFound) {
-                    if (totalLetters === correctLetters) {
-                        wins++;
-                        document.getElementById("wins").innerHTML = wins;
-                        //reset the game
-                    } 
-                } else {
-                    if (!guessCount) {
-                        losses++;
-                        // update DOM
-                        // reset the game 
-                    } else {
-                        guessCount--;
-                        // update DOM
-                    }
-                }
-                // yes - WIN
-                    //call func to restart
-                // else, check if guesses are available
-                // no - LOSS  
-                    //call func to restart 
+    if (matchFound) {  // check if a match was found or not
+        if (totalLetters === correctLetters) { // if match is found AND all of the matches have been found
+            wins++; // increment number of wins
+            document.getElementById("wins").innerHTML = ("Wins: " + wins); //update win count in HTML
+            //reset the game
+        } 
+    } else {  // if no match was found
+        if (!guessCount) { // if no match was found AND guessCount = 0
+            losses++; // increment number of losses
+            document.getElementById("losses").innerHTML = ("Losses: " + wins); // update win count in HTML
+            // reset the game 
+        } else {
+                guessCount--;
+                console.log("guessCount: " + guessCount);
+                document.getElementById("guess-count").innerHTML = ("Guesses Remaining: " + guessCount); 
+                //reset the game
+            }   
+          }
+}
+
 
 //func to restart the game
             //reset variables
             //update DOM
-
-}
-
-
 
 
