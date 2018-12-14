@@ -83,10 +83,11 @@ document.onkeyup = function(event) { // when user releases a key, the event func
             blanksArray[j] = userGuess; // add the matching userGuess letter to the blanksArray at specific/matching index position(s)
             matchFound = true; // updating the value of matchFound
             correctLetters++; // increment the value of correctLetters
+            console.log("number of correct letters: " + correctLetters);
         }
     }
         document.getElementById("guessing-word").innerHTML = blanksArray.join(" "); // replacing matched letters in HTML at specific index - so visible to user
-            console.log(blanksArray);
+            console.log(blanksArray); // visualize in console the blanksArray with matched letter choice 
 
     if (matchFound) {  // check if a match was found or not
         if (totalLetters === correctLetters) { // if match is found AND all of the matches have been found
@@ -94,19 +95,19 @@ document.onkeyup = function(event) { // when user releases a key, the event func
             document.getElementById("wins").innerHTML = ("Wins: " + wins); //update win count in HTML
             //reset the game
         } 
-    } else {  // if no match was found
-        if (!guessCount) { // if no match was found AND guessCount = 0
+    } else if (!guessCount){  // if no match was found
+          // if no match was found AND guessCount = 0
             losses++; // increment number of losses
             document.getElementById("losses").innerHTML = ("Losses: " + wins); // update win count in HTML
             // reset the game 
-        } else {
-                guessCount--;
-                console.log("guessCount: " + guessCount);
-                document.getElementById("guess-count").innerHTML = ("Guesses Remaining: " + guessCount); 
+        } else { // if no match was found, but user stills has guesses
+                guessCount--; // decrement number of guesses 
+                console.log("guessCount: " + guessCount); // visualize what the current guessCount is
+                document.getElementById("guesses-remaining").textContent = ("Guesses Remaining: " + guessCount); 
                 //reset the game
             }   
           }
-}
+
 
 
 //func to restart the game
