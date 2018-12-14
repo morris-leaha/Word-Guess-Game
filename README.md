@@ -1,4 +1,4 @@
-# Word-Guess-Game
+# Word Guessing Game
 This is a take on the classic hang-man style game featuring December holiday words!
 
 ## How to Play
