@@ -20,14 +20,14 @@ This is a take on the classic hang-man style game featuring December holiday wor
 * Player input is received via key presses only.
 
 ## Things I'd Like to Still Add
-* Resetting the game automatically after a user has either won or lost, with continuous tracking of wins and losses.
+- [ ] Resetting the game automatically after a user has either won or lost, with continuous tracking of wins and losses.
     * Would like the game to automatically reset after, but adding a button or other functionality might be tackled first.
-* Rewarding the player if they win, before resetting the game with either:
-    * A sound effect
-    * An alert
-    * An image of the word 
-* If user loses, before resetting the game, I'd like to eventually:
-    * Display the correct word
-    * Display an image of the word
-    * Sound a different sound 
+- [ ] Rewarding the player if they win, before resetting the game with either:
+    - [ ] A sound effect
+    - [ ] An alert
+    - [ ] An image of the word 
+- [ ] If user loses, before resetting the game, I'd like to eventually:
+    - [ ] Display the correct word
+    - [ ] Display an image of the word
+    - [ ] Sound a different sound 
     
