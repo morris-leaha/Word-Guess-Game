@@ -89,7 +89,7 @@ document.onkeyup = function(event) { // when user releases a key, the event func
             console.log("this is the blanksArray: " + blanksArray); // visualize the blankArray in console
         
     guessCount--; //decrement the guesses remaining with each userGuess
-    console.log("number of guesses left: " + guessCount); // visualize number in console 
+        console.log("number of guesses left: " + guessCount); // visualize number in console 
         document.getElementById("guesses-remaining").innerHTML = ("Guesses Remaining: " + guessCount); // update count in HTML
 
 
@@ -108,7 +108,7 @@ document.onkeyup = function(event) { // when user releases a key, the event func
                 //reset the game
             }               
     
-    if (guessCount === 0) { // added so that game ends when user runs out of guesses
+    if (guessCount === 0) { // game ends when user runs out of guesses
         losses++; // increment losses by one
         document.getElementById("losses").innerHTML = ("Losses: " + losses); // display in HTML
     } else {
