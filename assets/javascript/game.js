@@ -29,10 +29,8 @@ for (var i = 0; i < currentWord.length; i++) { // will loop through the current 
 var wins = 0; // setting number of wins to 0 (to start)
 var losses = 0; // setting number of losses to 0 (to start)
 var guessCount = 10; // storing the max number of letters the user can pick
-var userGuess = ""; // create userGuess variable to store strings of letters pressed 
+// var userGuess = ""; // create userGuess variable to store strings of letters pressed 
 var guessedLetters = []; // created guessedLetters assigned an empty array -- will store the letters pressed by the user
-var splitWord = currentWord.split(""); // splits the currentWord into individual strings and stores it in an array we assigned the value of splitWord
-    console.log(splitWord); // visualizing in console the individual letter of the currentWord 
 var matchFound = false; // setting the value of matchFound to false 
 var correctLetters = 0; // setting the value of correctLetters to 0
 var totalLetters = splitWord.length; // storing totalLetters as the total length of the splitWord 
@@ -41,9 +39,13 @@ var totalLetters = splitWord.length; // storing totalLetters as the total length
 // RUN THIS FUNCTION WHEN USER PRESSES A KEY
 
 document.onkeyup = function(event) { // when user releases a key, the event function will run
-    userGuess = String.fromCharCode(event.keyCode).toLowerCase();  // storing the event of a key pressed as userGuess -- but using the string property, the computer will convert the key's character code that was pressed to an actual letter and make it lowercase (since all my wordList words are lowercase)
+    var userGuess = event.key;
+    var userGuess= userGuess.toLowerCase();  // storing the event of a key pressed as userGuess -- but using the string property, the computer will convert the key pressed to lowercase (since all my wordList words are lowercase)
         console.log("user picked: " + userGuess);  // want to visualize in console what key the user is pressing
 
+    var splitWord = currentWord.split(""); // splits the currentWord into individual strings and stores it in an array we assigned the value of splitWord
+    console.log(splitWord); // visualizing in console the individual letter of the currentWord 
+    
     // verifies if user has picked the same letter twice
     if (guessedLetters.indexOf(userGuess) >= 0) {  // says if WITHIN the array (the significance of >=0) of guessedLetters, using the indexOf() method to find the first occurrence, there is another value that is the same 
         console.log("you've already guessed that letter");  // print in console that userGuess has already been chosen and cannot be chosen again
