@@ -1,7 +1,7 @@
 body {
     background: white;
     background-image: url("../images/christmas-colour.png");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-image: center;
     background-size: cover;
 }
